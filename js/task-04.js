@@ -1,20 +1,20 @@
-const couterValue = document.querySelector('#value')
-‎
-function App() {
-  const [counter, setCounter] = useState(1);
-  const increment = () => setCounter(counter + 1);
-  let decrementCounter = () => setCounter(counter - 1);
-
-  if(counter<=0) {
-    decrement = () => setCounter(1);
-  }
-
-  return (
-    <div> 
-      <ButtonIncrement onClickFunc={incrementCounter}/>
-      <Display message={counter}/> 
-      <ButtonDecrement onClickFunc={decrementCounter}/>
-    </div>
-  );
+const wrap_button = {
+  sub: document.querySelector("[data-action='increment']"),
+  add: document.querySelector("[data-action='decrement']"),
+  span: document.querySelector('#value'),
+  wrapper: document.querySelector('#counter '),
 }
-‎
+let counterValue = 0
+const increment = () => {
+  counterValue += 1
+
+  document.getElementById('value').textContent = counterValue
+}
+
+const decrement = () => {
+  counterValue -= 1
+
+  document.getElementById('value').textContent = counterValue
+}
+wrap_button.sub.addEventListener('click', increment)
+wrap_button.add.addEventListener('click', decrement)
