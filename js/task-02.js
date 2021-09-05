@@ -7,13 +7,10 @@ const ingredients = [
   'Приправы',
 ]
 
-const ingredientsEl = []
-
-ingredients.map((ingrEl) => {
+let ingredientsEl = ingredients.map((ingrEl) => {
   const itemLi = document.createElement('li')
   itemLi.textContent = ingrEl
-
-  ingredientsEl.push(itemLi)
+  return itemLi
 })
 
 const listIngredients = document.querySelector('#ingredients')

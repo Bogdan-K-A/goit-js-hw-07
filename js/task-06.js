@@ -1,10 +1,23 @@
-document.getElementById('validation-input').onblur = function () {
-  console.log(this.value.length)
-  if (this.getAttribute('data-length') > this.value.length) {
-    this.classList.remove('valid')
-    this.classList.add('invalid')
-  } else {
-    this.classList.remove('invalid')
-    this.classList.add('valid')
+const input = document.querySelector('#validation-input')
+
+const changeColorInput = () => {
+  let valueLength = input.value.length
+  const valueDataAtribute = Number(input.getAttribute('data-length'))
+
+  if (valueDataAtribute === valueLength) {
+    return validBorderColor()
   }
+  return invalidBorderColor()
 }
+
+function validBorderColor() {
+  input.classList.remove('invalid')
+  input.classList.add('valid')
+}
+
+function invalidBorderColor() {
+  input.classList.remove('valid')
+  input.classList.add('invalid')
+}
+
+input.addEventListener('change', changeColorInput)
