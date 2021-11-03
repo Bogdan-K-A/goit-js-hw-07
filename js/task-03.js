@@ -16,9 +16,19 @@ const images = [
   },
 ]
 
-const imagesEl = ({ url, alt }) => `<li><img src="${url}" alt="${alt}"></li>`
+// const imagesEl = ({ url, alt }) => `<li><img src="${url}" alt="${alt}"></li>`
 
-const imagesLists = images.map(imagesEl).join('')
+// const imagesLists = images.map(imagesEl).join('')
 
-const gallery = document.querySelector('#gallery')
-gallery.insertAdjacentHTML('beforeEnd', imagesLists)
+// const gallery = document.querySelector('#gallery')
+// gallery.insertAdjacentHTML('beforeEnd', imagesLists)
+// =====================================================================
+const list = document.querySelector('#gallery')
+list.style.cssText = `display:flex;`
+
+images.forEach((el) => {
+  list.insertAdjacentHTML(
+    'beforeend',
+    `<li><img src="${el.url}" alt="${el.alt}" width="80%"/></li>`,
+  )
+})
